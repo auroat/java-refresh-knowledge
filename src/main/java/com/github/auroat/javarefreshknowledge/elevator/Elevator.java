@@ -8,15 +8,15 @@ public class Elevator {
     private State currentState = State.IDLE;
 
     /**
-     * jobs which are being processed
+     * Jobs which are being processed
      */
     private TreeSet<Request> currentJobs = new TreeSet<>();
     /**
-     * up jobs which cannot be processed now so put in pending queue
+     * Up jobs which cannot be processed now, so put in pending queue
      */
     private TreeSet<Request> upPendingJobs = new TreeSet<>();
     /**
-     * down jobs which cannot be processed now so put in pending queue
+     * Down jobs which cannot be processed now so put in pending queue
      */
     private TreeSet<Request> downPendingJobs = new TreeSet<>();
 
@@ -47,12 +47,10 @@ public class Elevator {
     }
 
     public boolean checkIfJob() {
-
         if (currentJobs.isEmpty()) {
             return false;
         }
         return true;
-
     }
 
     private void processUpRequest(Request request) {
@@ -149,10 +147,8 @@ public class Elevator {
                 currentJobs.add(request);
 
             }
-
         }
         return false;
-
     }
 
     private void addPendingDownJobsToCurrentJobs() {
@@ -162,7 +158,6 @@ public class Elevator {
         } else {
             currentState = State.IDLE;
         }
-
     }
 
     private void addPendingUpJobsToCurrentJobs() {
@@ -172,7 +167,6 @@ public class Elevator {
         } else {
             currentState = State.IDLE;
         }
-
     }
 
     public void addJob(Request request) {

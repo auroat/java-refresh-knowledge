@@ -34,9 +34,7 @@ public class ElevatorTest {
         }
 
         ExternalRequest er = new ExternalRequest(Direction.DOWN, 5);
-
         InternalRequest ir = new InternalRequest(0);
-
         Request requestOne = new Request(ir, er);
 
         /**

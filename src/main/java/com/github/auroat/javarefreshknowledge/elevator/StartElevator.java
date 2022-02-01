@@ -18,9 +18,7 @@ public class StartElevator {
         }
 
         ExternalRequest er = new ExternalRequest(Direction.UP, 0);
-
         InternalRequest ir = new InternalRequest(5);
-
         Request request1 = new Request(ir, er);
 
         /**
