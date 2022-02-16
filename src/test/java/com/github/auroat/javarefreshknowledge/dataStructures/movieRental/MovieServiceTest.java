@@ -2,9 +2,7 @@ package com.github.auroat.javarefreshknowledge.dataStructures.movieRental;
 
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,10 +18,12 @@ public class MovieServiceTest {
     @Test
     public void listMovies() {
         List<Movie> moviesResult = movieService.listMovies();
+        List<String> expectedActors = Arrays.asList("Hugh Jackman", "Drew Darrymore", "Tobey Maguire");
 
-        moviesResult.get(0).getActors().stream().forEach(actor -> {
-            assertThat(Arrays.asList("Hugh Jackman", "Drew Darrymore"), hasItem(actor.getName()));
+        moviesResult.stream().forEach(movie -> {
+            movie.getActors().stream().forEach(actor -> {
+                assertThat(expectedActors, hasItem(actor.getName()));
+            });
         });
-        // How to intelligently compare values when there are more than 1 values in a Set?
     }
 }
