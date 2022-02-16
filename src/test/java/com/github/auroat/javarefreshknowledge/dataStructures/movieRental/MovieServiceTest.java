@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 
@@ -34,13 +35,12 @@ public class MovieServiceTest {
     @Test
     public void listMoviesSorted() {
         List<Movie> moviesResult = movieService.listMoviesSortedByName();
-        List<String> expectedActorsSorted = Arrays.asList("Antman", "Godfather", "Ironman", "SpiderMan", "Wasp woman");
         List<String> moviesNamesResult = new ArrayList<>();
 
         moviesResult.stream().forEach(movie -> {
             moviesNamesResult.add(movie.getName());
         });
 
-        assertThat(moviesNamesResult.containsAll(expectedActorsSorted), is(true));
+        assertThat(moviesNamesResult, contains("Antman", "Godfather", "Ironman", "SpiderMan", "Wasp woman"));
     }
 }
