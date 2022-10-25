@@ -27,4 +27,12 @@ public class PivotIndexTest {
 
         Assertions.assertEquals(expectedResult, PivotIndex.pivotIndex(input), "The two ints should match.");
     }
+
+    @Test
+    void pivotIndex_resultIsZero_singleZeroInput() {
+        int[] input = {0};
+        int expectedResult = 0;
+
+        Assertions.assertEquals(expectedResult, PivotIndex.pivotIndex(input), "The two ints should match.");
+    }
 }
